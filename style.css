@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,700');
+
+/********
+ * Global
+ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11pt;
+    line-height: 16pt;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FFFFFA;
+}
+@media print {
+    body {
+        font-size: 10pt;
+        line-height: 14.5pt;
+        padding-left: 0;
+        padding-right: 0;
+        background-color: white;
+    }
+}
+a {
+    color: inherit;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul:not(.no-style) li:before {
+   content: '- ';
+}
+
+/********
+ * Layout
+ */
+section.info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+@media screen and (min-width: 720px) {
+    section.info {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+@media print {
+    section.info {
+        display: none;
+    }
+}
+header, section {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+@media print, screen and (min-width: 720px) {
+    header, section {
+        width: 701px;
+    }
+}
+header div {
+    float: left;
+}
+@media screen and (min-width: 720px) {
+    header {
+        padding-bottom: 120px;
+    }
+}
+@media print {
+    header {
+        padding-bottom: 100px;
+    }
+}
+
+
+/********
+ * Header
+ */
+section.info {
+    text-align: center;
+}
+header {
+    font-family: 'Merriweather', serif;
+}
+header .name {
+    display: block;
+    width: 100%;
+    font-size: 8vw;
+    line-height: 38pt;
+}
+@media print, screen and (min-width: 720px) {
+    header .name {
+        font-size: 31pt;
+    }
+}
+header .position {
+    padding-top: 10px;
+    font-size: 15pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #777777;
+}
+@media print, screen and (min-width: 720px) {
+    header .position {
+        float: right;
+    }
+}
+header .contact {
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-size: 9pt;
+    line-height: 12pt;
+    color: #424242;
+}
+@media print, screen and (min-width: 720px) {
+    header .contact {
+        clear: none;
+        float: right;
+        margin-top: 5px;
+        margin-bottom: 0;
+        margin-left: 20px;
+    }
+}
+@media print {
+    header .contact {
+        font-size: 8pt;
+        margin-right: 15px;
+    }
+}
+header .contact span, header .contact a {
+    display: block;
+}
+
+/**********
+ * Sections
+ */
+section:not(.info) {
+    clear: both;
+    padding-top: 10px;
+}
+section .header, section .content {
+    float: left;
+    margin-bottom: 20px;
+}
+@media print {
+    section .header, section .content {
+        margin-bottom: 0;
+    }
+}
+section .header {
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+@media print, screen and (min-width: 720px) {
+    section .header {
+        width: 150px;
+    }
+}
+section .header span {
+    display: block;
+    margin-bottom: 2px;
+}
+section .header span:not(.title):not(.position) {
+    font-size: 10pt;
+    line-height: 12pt;
+}
+section .header .title {
+   text-transform: uppercase;
+}
+section .header .position {
+    font-weight: bold;
+}
+section .content {
+    width: 100% ;
+}
+@media print, screen and (min-width: 720px) {
+    section .content {
+        width: 540px;
+        padding-left: 10px;
+    }
+}
+section .content *:first-child {
+    margin-top: 0;
+}
+section .content p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+section .content p:nth-child(2) { /* <p> following a <ul> */
+    margin-top: 4px;
+}
+section .content ul.keywords li {
+    display: inline;
+    font-weight: bold;
+}
+section .content ul.keywords li:before {
+   content: '';
+}
+section .content ul.keywords li:not(:last-child):after {
+   content: ', ';
+}
+section:last-child .content {
+    padding-bottom: 60px;
+}
+@media print {
+    section:last-child .content {
+        padding-bottom: 0;
+    }
+}
