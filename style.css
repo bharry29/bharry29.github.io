@@ -117,6 +117,7 @@ header .contact {
     line-height: 12pt;
     color: #424242;
 }
+
 @media print, screen and (min-width: 720px) {
     header .contact {
         clear: none;
@@ -211,4 +212,14 @@ section:last-child .content {
     section:last-child .content {
         padding-bottom: 0;
     }
+}
+
+#contact-horizontal-list {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+#contact-horizontal-list li {
+  float:left;
+  margin-left: 2px;
 }
