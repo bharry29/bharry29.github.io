@@ -12,6 +12,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     background-color: #FFFFFA;
+    border-width:1px;
 }
 @media print {
     body {
@@ -31,7 +32,7 @@ ul {
     padding: 0;
 }
 ul:not(.no-style) li:before {
-   content: '- ';
+   content: '-';
 }
 
 /********
@@ -77,9 +78,9 @@ header div {
 }
 
 
-/********
- * Header
- */
+/* *******
+ * Header */
+
 section.info {
     text-align: center;
 }
@@ -104,8 +105,20 @@ header .position {
     text-transform: uppercase;
     color: #777777;
 }
+
+header .currplace {
+    padding-top: 5px;
+    font-size: 12pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #777777;
+}
+
 @media print, screen and (min-width: 720px) {
     header .position {
+        float: right;
+    }
+    header .currplace {
         float: right;
     }
 }
@@ -116,6 +129,13 @@ header .contact {
     font-size: 9pt;
     line-height: 12pt;
     color: #424242;
+    align-content: center;
+    width:100%;
+    border-width:1px;
+}
+
+header #contact-horizontal-list{
+    align-items: center;
 }
 
 @media print, screen and (min-width: 720px) {
@@ -170,10 +190,20 @@ section .header span:not(.title):not(.position) {
     font-size: 10pt;
     line-height: 12pt;
 }
+
+section .header span:not(.title):not(.currplace) {
+    font-size: 10pt;
+    line-height: 12pt;
+}
+
 section .header .title {
    text-transform: uppercase;
 }
 section .header .position {
+    font-weight: bold;
+}
+
+section .header .currplace {
     font-weight: bold;
 }
 section .content {
@@ -218,8 +248,6 @@ section:last-child .content {
     list-style-type:none;
     margin:0;
     padding:0;
-}
-#contact-horizontal-list li {
-  float:left;
-  margin-left: 2px;
+    display: flex;
+    width:100%;
 }
