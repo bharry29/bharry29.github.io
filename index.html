@@ -12,11 +12,17 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<!-- icon -->
 	<link rel="icon" href="img/favicon.ico">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125747483-1"></script>
 	<script>
-		function printPage() {
-			window.print();
-		}
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-125747483-1');
 	</script>
+
 </head>
 
 <body>
@@ -27,7 +33,6 @@
 		<p>Software Developer</p>
 	</header>
 	<section class="center">
-		<a href="#" onclick="printPage();">Print this page</a> |
 		<a href="https://github.com/bharry29/bharry29.github.io">View the actual code on GitHub</a>
 	</section>
 
