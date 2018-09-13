@@ -22,27 +22,6 @@
 
 		gtag('config', 'UA-125747483-1');
 	</script>
-
-	<script language="javascript">
-
-		function DisplayVisits() {
-			// How many visits so far? 
-			var numVisits = GetCookie("numVisits");
-			if (numVisits) numVisits = parseInt(numVisits) + 1;
-			else numVisits = 1; // the value for the new cookie 
-
-			// Show the number of visits 
-			if (numVisits == 1) document.write("This is your first visit.");
-			else document.write("You have visited this page " + numVisits + " times.");
-
-			// Set the cookie to expire 365 days from now 
-			var today = new Date();
-			today.setTime(today.getTime() + 365 /*days*/ * 24 /*hours*/ * 60 /*minutes*/ * 60 /*seconds*/ * 1000 /*milliseconds*/);
-			SetCookie("numVisits", numVisits, today);
-		}
-
-	</script>
-
 </head>
 
 <body>
@@ -56,7 +35,9 @@
 		<a href="https://github.com/bharry29/bharry29.github.io">View the actual code on GitHub</a>
 	</section>
 	<section class="center">Visitor count:
-		<script language="javascript">DisplayVisits();</script>
+		<div style="text-align:center;">
+			<script type="text/javascript" src="http://services.webestools.com/cpt_visitors/57708-9-6.js"></script>
+		</div><a href="http://www.webestools.com/" style="display:block;text-align:center;"><img src="http://www.webestools.com/images/ban03.gif" /></a>
 	</section>
 
 	<div class="container">
