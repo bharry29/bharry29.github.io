@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Bharath's Online Resume</title>
+	<title>BV's e-Folio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!--Custom fonts. To improve load times, remove this and update the h1 styling in style.css-->
 	<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:300,700' type='text/css'>
@@ -25,7 +25,6 @@
 </head>
 
 <body>
-
 	<!-- Header-->
 	<header>
 		<h1>Bharath</h1>
@@ -72,9 +71,16 @@
 					<a target="_blank" href="mailto:bharry29@gmail.com"><i id="social-gm" class="fa fa-envelope-square fa-3x social"></i></a>
 					<a target="_blank" href="tel:510-621-8896"><i id="social-mo" class="fa fa-mobile fa-3x social"></i></a>
 				</div>
-			</div>
 		</section>
-		<hr>
+		<section class="center">
+			<div class="container">
+				<h1>P.S: <strong><span id="message"></span></strong></h1>
+			</div>
+
+		</section>
+	</div>
+	</section>
+	<hr>
 	</div> <!-- End container-->
 
 	<!-- Testimonials-->
@@ -361,15 +367,31 @@
 		<hr>
 
 		<section class="center">
-			<h1>Note</h1>
 			<p>
-				If you find bugs, want features, or have questions, feel free to log an <a href="https://github.com/bharry29/UserProfile/issues">issue</a>.
-				If you want to reach out to me, shoot me an
-				<a href="mailto:bharry29@gmail.com?Subject=About%20your%20online%20resume" target="_top">email</a> or can call me
-				on my
-				<a href="tel:510-621-8896">mobile</a>.
+				<h1>Want to setup a meeting with <strong>me</strong>?</h1>
+				<!-- Calendly inline widget begin -->
+				<div class="calendly-inline-widget" data-url="https://calendly.com/bharry29" style="min-width:160px;height:390px;"></div>
+				<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+				<!-- Calendly inline widget end -->
 			</p>
 		</section>
+
+		<hr>
+		<div class="container">
+			<section class="center">
+				<h1>Note</h1>
+				<p>I can <strong> my wallpaper, P.S message</strong> through my <strong>voice</strong> using <strong>google
+						assistant</strong>. Pretty cool right?</p>
+				<p>
+					If you find bugs, want features, or have questions, feel free to log an <a href="https://github.com/bharry29/UserProfile/issues">issue</a>.
+					If you want to reach out to me, shoot me an
+					<a href="mailto:bharry29@gmail.com?Subject=About%20your%20online%20resume" target="_top">email</a> or can call me
+					on my
+					<a href="tel:510-621-8896">mobile</a>.
+				</p>
+				<br>
+			</section>
+		</div>
 
 		<!--Footer-->
 		<footer class="center">
@@ -380,5 +402,56 @@
 	</div><!-- End Container -->
 
 </body>
+<script>
+	var imagenumber = null;
+	var message = null;
+
+	function RefreshPage() {
+		RefreshImage();
+		RefreshMessage();
+		// setTimeout(RefreshPage, 5000);
+	}
+
+	function RefreshImage() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", "https://portfolioagent-84e94.firebaseio.com/wallpaper.json", true);
+		xhttp.send();
+		xhttp.addEventListener("readystatechange", processRequest, false);
+		function processRequest(e) {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				var response = JSON.parse(xhttp.responseText);
+				var numberString = response.number;
+				LoadBackgroundImage(numberString);
+			}
+		}
+	}
+
+	function RefreshMessage() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", "https://portfolioagent-84e94.firebaseio.com/quote.json", true);
+		xhttp.send();
+		xhttp.addEventListener("readystatechange", processRequest, false);
+		function processRequest(e) {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				var response = JSON.parse(xhttp.responseText);
+				var messageString = response.message;
+				LoadMessage(messageString);
+			}
+		}
+	}
+
+	document.onload(
+		RefreshPage()
+	)
+
+	function LoadBackgroundImage(imagenumber) {
+		var urlimage = "img/bharath-background-" + imagenumber + ".jpg";
+		document.getElementsByTagName("header")[0].style.cssText = "background-image: url(" + urlimage + ");";
+	}
+
+	function LoadMessage(message) {
+		document.getElementById("message").innerHTML = message;
+	}
+</script>
 
 </html>
